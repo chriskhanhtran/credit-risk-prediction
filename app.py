@@ -10,7 +10,7 @@ st.markdown('# FICO Default Risk Prediction')
 # Load model
 model_names = ['rfc', 'svc', 'lgbm']
 
-@st.cache
+@st.cache(show_spinner=False)
 def load_model(model_names):
     models = []
     for model_name in ['rfc', 'svc', 'lgbm']:
@@ -37,6 +37,7 @@ elif selected_model == 'LightGBM':
 # Fill values
 st.sidebar.markdown("**Variables:**")
 X = {}
+
 X['ExternalRiskEstimate'] = st.sidebar.slider('ExternalRiskEstimate', -9, 94, 67)
 X['MSinceOldestTradeOpen'] = st.sidebar.slider('MSinceOldestTradeOpen', -9, 803, 184)
 X['MSinceMostRecentTradeOpen'] = st.sidebar.slider('MSinceMostRecentTradeOpen', -9, 383, 8)
@@ -64,31 +65,34 @@ X['PercentTradesWBalance'] = st.sidebar.slider('PercentTradesWBalance', -9, 100,
 # Convert X to DataFrame
 X = pd.DataFrame(X, index=[0])
 
+
+# Show prediction
+def show_prediction():
+    #if st.button("Run Model"):
+    pred = model.predict_proba(X)[0, 1]
+    st.markdown(f'## Risk of Default: {pred*100:.2f} %')
+        
+show_prediction()
+
+
 # Show model's evaluation
 def show_evaluation():
     if st.checkbox("Show Model's Evaluation"):
         if selected_model == 'Random Forest':
-            st.write('AUC: 0.79')
-            st.write('Accuracy: 72.47%')
+            st.write('**AUC:** 0.79')
+            st.write('**Accuracy:** 72.47%')
             image = Image.open('img/rfc.png')
             st.image(image, use_column_width=False)
         elif selected_model == 'Support Vectors Machine':
-            st.write('AUC: 0.78')
-            st.write('Accuracy: 72.75%')
+            st.write('**AUC:** 0.78')
+            st.write('**Accuracy:** 72.75%')
             image = Image.open('img/svc.png')
             st.image(image, use_column_width=False)
         elif selected_model == 'LightGBM':
-            st.write('AUC: 0.80')
-            st.write('Accuracy: 73.14%')
+            st.write('**AUC:** 0.80')
+            st.write('**Accuracy:** 73.14%')
             image = Image.open('img/lgbm.png')
             st.image(image, use_column_width=False)
             
 show_evaluation()
-            
-# Show prediction
-def show_prediction():
-    if st.button("Run Model"):
-        pred = model.predict_proba(X)[0, 1]
-        st.markdown(f'**Risk of Default: ** {pred*100:.2f} %')
-        
-show_prediction()
+
