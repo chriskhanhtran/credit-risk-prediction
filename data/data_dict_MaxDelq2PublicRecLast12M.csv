@@ -1,0 +1,9 @@
+﻿Value,Meaning
+0,derogatory comment
+1,120+ days delinquent
+2,90 days delinquent
+3,60 days delinquent
+4,30 days delinquent
+5; 6,unknown delinquency
+7,current and never delinquent
+8; 9,all other
