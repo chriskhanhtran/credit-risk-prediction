@@ -14,7 +14,7 @@ def document_page():
     - [GitHub](https://github.com/chriskhanhtran/fico-default-risk)
     
     
-    ##About Us
+    ## About Us
     This website is an interactive interface for our Machine Learning models for credit risk prediction, as a part of our final project for the Advanced Predictive Analytics course at Simon Business School, University of Rochester.
     
     Our goal for this project is not only to find a relatively accurate and robust model for risk prediction, but more importantly, to improve its interpretability and give understandable explanations for sales representatives in a bank/credit card company can use to decide on accepting or rejecting applications.
