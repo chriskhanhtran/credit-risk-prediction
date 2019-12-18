@@ -1,1 +1,1 @@
-Website: http://fico-default-risk.herokuapp.com/
+Web App: http://credit-risk.herokuapp.com/
