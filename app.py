@@ -9,9 +9,9 @@ def document_page():
     st.markdown("""
     ## Thank you so much for your time!
     A full report, notebook, and GitHub repository can be found below:
-    - [Report](https://github.com/chriskhanhtran/fico-default-risk/blob/master/documents/Report.pdf)
-    - [Notebook](https://github.com/chriskhanhtran/fico-default-risk/blob/master/documents/Notebook.ipynb)
-    - [GitHub](https://github.com/chriskhanhtran/fico-default-risk)
+    - [Report](https://github.com/chriskhanhtran/credit-risk-prediction/blob/master/documents/Report.pdf)
+    - [Notebook](https://github.com/chriskhanhtran/credit-risk-prediction/blob/master/documents/Notebook.ipynb)
+    - [GitHub](https://github.com/chriskhanhtran/credit-risk-prediction)
     
     
     ## About Us
